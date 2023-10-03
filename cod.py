@@ -21,7 +21,6 @@ st.title("Cálculo de Radiación Solar en la Atmósfera Exterior")
 # Conversión de grados a radianes
 omega = np.radians(df['Hora Solar'] * 15.0)  # Convertir la hora solar en ángulo horario
 delta = np.radians(df['Declinación Solar'])
-phi = np.radians(longitud)
 # Cálculo de la radiación solar (Ho)
 factor = (24 / math.pi) * df['Radiación Solar']
 term1 = (math.pi / 180) * omega * np.sin(delta) * np.sin(phi)
