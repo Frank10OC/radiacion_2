@@ -35,4 +35,23 @@ df['Radiación Solar Exterior'] = ho
 # Mostrar el DataFrame con los resultados
 st.write("Tabla de datos con Radiación Solar Exterior:")
 st.dataframe(df)
+import streamlit as st
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Título de la aplicación
+st.title("Gráfico de Áreas con Datos de un CSV")
+
+
+    # Elegir dos columnas para el gráfico de áreas
+    st.sidebar.header("Selección de Columnas")
+    x_column = st.sidebar.selectbox("Seleccionar la columna X:", df.columns)
+    y_column = st.sidebar.selectbox("Seleccionar la columna Y:", df.columns)
+
+    # Crear el gráfico de áreas
+    st.area_chart(df[["dia", 'Radiación Solar Exterior']])
+
+    # Opcional: Mostrar una tabla con los datos
+    st.write("Tabla de Datos:")
+    st.write(df)
 
