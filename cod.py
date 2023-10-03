@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import math
+import numpy as np
 # Crear la aplicación Streamlit
 st.title("Cálculo de ω y Actualización del CSV")
 
