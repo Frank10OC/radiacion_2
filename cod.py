@@ -1,6 +1,3 @@
-# Crear la aplicación Streamlit
-st.title("Cálculo de ω y Actualización del CSV")
-
 # Agregar un componente de carga de archivo CSV
 uploaded_file = st.file_uploader("Cargar archivo CSV", type=["csv"])
 
