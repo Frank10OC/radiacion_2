@@ -16,6 +16,11 @@ df = pd.read_csv("https://raw.githubusercontent.com/Frank10OC/Radiacion/main/dat
 df["Hora Solar"] = radianes_a_grados(np.arccos(-np.tan(np.radians(df["Declinación Solar"])) * np.tan(np.radians(phi))))
 # Actualizar la visualización del DataFrame con la nueva columna
 st.write(df)
+# Definir un diccionario de mapeo de nombres de columnas
+nuevos_nombres = {'Radiación Solar': 'Intensidad Horaria', 'B': 'Nueva_Columna_B'}
+
+# Usar el método rename() para cambiar los nombres de las columnas
+df = df.rename(columns=nuevos_nombres)
 
 # Título de la aplicación
 
@@ -25,7 +30,7 @@ delta = np.radians(df['Declinación Solar'])
 phi=np.radians(phi)
 
 # Cálculo de la radiación solar (Ho)
-factor = (24 / math.pi) * df['Radiación Solar']
+factor = (24 / math.pi) * df['Intensidad Horaria']
 term1 = (math.pi / 180) * radianes_a_grados(omega) * np.sin(delta) * np.sin(phi)
 term2 = np.cos(delta) * np.cos(phi) * np.sin(omega)
 ho = factor * (term1 + term2)
