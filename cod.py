@@ -2,6 +2,9 @@ import streamlit as st
 import pandas as pd
 import math
 import numpy as np
+def radianes_a_grados(radianes):
+    grados = radianes * (180 / math.pi)
+    return grados
 # Crear la aplicación Streamlit
 st.title("Cálculo de ω y Actualización del CSV")
 
@@ -12,7 +15,7 @@ df = pd.read_csv("https://raw.githubusercontent.com/Frank10OC/Radiacion/main/dat
 st.write(df)
 st.write(df["Declinación Solar"])
 # Calcular ω utilizando la fórmula y agregarlo como una nueva columna
-df["Hora Solar"] = np.arccos(-np.tan(np.radians(df["Declinación Solar"])) * np.tan(np.radians(phi)))
+df["Hora Solar"] = radianes_a_grados(np.arccos(-np.tan(np.radians(df["Declinación Solar"])) * np.tan(np.radians(phi))))
 # Actualizar la visualización del DataFrame con la nueva columna
 st.write(df)
 
