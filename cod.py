@@ -6,7 +6,7 @@ import numpy as np
 st.title("Cálculo de ω y Actualización del CSV")
 
 # Agregar un campo de entrada para ϕ
-phi = st.number_input("Ingrese la longitud (ϕ):", min_value=0.0, max_value=90.0, step=0.1)
+phi = st.number_input("Ingrese la longitud (ϕ):", min_value=-90.0, max_value=90.0, step=0.000001)
 # Leer el archivo CSV en un DataFrame
 df = pd.read_csv("https://raw.githubusercontent.com/Frank10OC/Radiacion/main/dato.csv")
 st.write(df)
