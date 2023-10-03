@@ -42,16 +42,10 @@ import matplotlib.pyplot as plt
 # Título de la aplicación
 st.title("Gráfico de Áreas con Datos de un CSV")
 
+# Crear el gráfico de áreas
+st.area_chart(df[["dia", 'Radiación Solar Exterior']])
 
-    # Elegir dos columnas para el gráfico de áreas
-    st.sidebar.header("Selección de Columnas")
-    x_column = st.sidebar.selectbox("Seleccionar la columna X:", df.columns)
-    y_column = st.sidebar.selectbox("Seleccionar la columna Y:", df.columns)
-
-    # Crear el gráfico de áreas
-    st.area_chart(df[["dia", 'Radiación Solar Exterior']])
-
-    # Opcional: Mostrar una tabla con los datos
-    st.write("Tabla de Datos:")
-    st.write(df)
+# Opcional: Mostrar una tabla con los datos
+st.write("Tabla de Datos:")
+st.write(df)
 
