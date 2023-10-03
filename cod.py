@@ -30,7 +30,7 @@ factor = (24 / math.pi) * df['Radiación Solar']
 term1 = (math.pi / 180) * omega * np.sin(delta) * np.sin(phi)
 term2 = np.cos(delta) * np.cos(phi) * np.sin(omega)
 ho = factor * (term1 + term2)
-st.write(factor,term1,term2)
+st.write(term1)
 # Agregar los resultados al DataFrame
 df['Radiación Solar Exterior'] = ho
 # Mostrar el DataFrame con los resultados
