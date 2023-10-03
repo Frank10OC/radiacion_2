@@ -13,11 +13,11 @@ phi = st.number_input("Ingrese la longitud (ϕ):", min_value=-180.0, max_value=1
 # Leer el archivo CSV en un DataFrame
 df = pd.read_csv("https://raw.githubusercontent.com/Frank10OC/Radiacion/main/dato.csv")
 # Calcular ω utilizando la fórmula y agregarlo como una nueva columna
-df["Hora Solar"] = radianes_a_grados(np.arccos(-np.tan(np.radians(df["Declinación Solar"])) * np.tan(np.radians(phi))))
+df["Angulo horario de salida del Sol"] = radianes_a_grados(np.arccos(-np.tan(np.radians(df["Declinación Solar"])) * np.tan(np.radians(phi))))
 # Actualizar la visualización del DataFrame con la nueva columna
 st.write(df)
 # Definir un diccionario de mapeo de nombres de columnas
-nuevos_nombres = {'Radiación Solar': 'Intensidad Horaria', 'B': 'Nueva_Columna_B'}
+nuevos_nombres = {'Radiación Solar': 'Intensidad Horaria'}
 
 # Usar el método rename() para cambiar los nombres de las columnas
 df = df.rename(columns=nuevos_nombres)
@@ -25,7 +25,7 @@ df = df.rename(columns=nuevos_nombres)
 # Título de la aplicación
 
 # Conversión de grados a radianes
-omega =np.radians(df['Hora Solar']) 
+omega =np.radians(df['Angulo horario de salida del Sol']) 
 delta = np.radians(df['Declinación Solar'])
 phi=np.radians(phi)
 
