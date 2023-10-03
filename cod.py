@@ -9,6 +9,7 @@ st.title("Cálculo de Radiación Solar en la Atmósfera Exterior")
 # Crear la aplicación Streamlit
 st.write("Cálculo de ángulo horario de salida del Sol")
 # Agregar un campo de entrada para ϕ
+nombre_lugar = st.text_input("Ingrese el nombre del lugar:")
 phi = st.number_input("Ingrese la latitud(ϕ):", min_value=-180.0, max_value=180.0, step=0.000001)
 longitud = st.number_input("Longitud:")
 # Leer el archivo CSV en un DataFrame
@@ -38,14 +39,14 @@ ho = factor * (term1 + term2)
 # Agregar los resultados al DataFrame
 df['Radiación Solar Exterior'] = ho
 # Mostrar el DataFrame con los resultados
-st.write("Tabla de datos con Radiación Solar Exterior:")
+st.write("Tabla de datos con Radiación Solar Exterior en",nombre_lugar)
 st.dataframe(df)
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 
 # Título de la aplicación
-st.title("Gráfico de Áreas con Datos de un CSV")
+st.title("Gráfico de Radiacion en ", nombre_lugar)
 
 # Crear el gráfico de áreas
 st.area_chart(df[["dia", 'Radiación Solar Exterior']])
