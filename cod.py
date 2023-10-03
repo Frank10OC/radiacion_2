@@ -1,5 +1,3 @@
-# Agregar un componente de carga de archivo CSV
-uploaded_file = st.file_uploader("Cargar archivo CSV", type=["csv"])
 
 # Agregar un campo de entrada para ϕ
 phi = st.number_input("Ingrese el valor de ϕ:", min_value=0.0, max_value=90.0, step=0.1)
