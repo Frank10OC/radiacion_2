@@ -46,19 +46,19 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # Título de la aplicación
-st.title("Gráfico de Radiacion en ", nombre_lugar)
+st.title("Gráfico de Radiacion en ",nombre_lugar)
 
 # Crear el gráfico de áreas
 st.area_chart(df[["dia", 'Radiación Solar Exterior']])
 
 # Opcional: Mostrar una tabla con los datos
-st.write("Tabla de Datos:")
+st.write("Tabla de Datos de ",nombre_lugar)
 st.write(df)
 import streamlit as st
 import folium
 
 # Título de la aplicación
-st.title("Mapa Interactivo en Streamlit")
+st.title("Mapa Interactivo de ",nombre_lugar)
 
 # Agregar campos de entrada para latitud y longitud
 latitud = phi
