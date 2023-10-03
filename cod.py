@@ -46,7 +46,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # Título de la aplicación
-st.title("Gráfico de Radiacion en ",nombre_lugar)
+st.title("Gráfico de Radiacion en "+ nombre_lugar)
 
 # Crear el gráfico de áreas
 st.area_chart(df[["dia", 'Radiación Solar Exterior']])
