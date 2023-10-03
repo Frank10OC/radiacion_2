@@ -1,4 +1,4 @@
-phi = st.number_input("Ingrese el valor de ϕ:", min_value=0.0, max_value=90.0, step=0.1)
+phi = st.input("Ingrese el valor de ϕ:", min_value=0.0, max_value=90.0, step=0.1)
 # Verificar si se ha cargado un archivo CSV
 if uploaded_file is not None:
     # Leer el archivo CSV en un DataFrame
