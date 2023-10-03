@@ -9,10 +9,9 @@ def radianes_a_grados(radianes):
 st.title("Cálculo de ω y Actualización del CSV")
 
 # Agregar un campo de entrada para ϕ
-phi = st.number_input("Ingrese la longitud (ϕ):", min_value=-90.0, max_value=90.0, step=0.000001)
+phi = st.number_input("Ingrese la longitud (ϕ):", min_value=-180.0, max_value=180.0, step=0.000001)
 # Leer el archivo CSV en un DataFrame
 df = pd.read_csv("https://raw.githubusercontent.com/Frank10OC/Radiacion/main/dato.csv")
-st.write(df)
 st.write(df["Declinación Solar"])
 # Calcular ω utilizando la fórmula y agregarlo como una nueva columna
 df["Hora Solar"] = radianes_a_grados(np.arccos(-np.tan(np.radians(df["Declinación Solar"])) * np.tan(np.radians(phi))))
@@ -25,6 +24,7 @@ st.title("Cálculo de Radiación Solar en la Atmósfera Exterior")
 omega = np.radians(df['Hora Solar']) 
 delta = np.radians(df['Declinación Solar'])
 phi=np.radians(phi)
+st.write(df)
 # Cálculo de la radiación solar (Ho)
 factor = (24 / math.pi) * df['Radiación Solar']
 term1 = (math.pi / 180) * omega * np.sin(delta) * np.sin(phi)
