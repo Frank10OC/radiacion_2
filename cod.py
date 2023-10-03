@@ -12,6 +12,6 @@ df = pd.read_csv("https://raw.githubusercontent.com/Frank10OC/radiacion_2/main/d
 st.write(df)
 st.write(df["Declinación Solar"])
 # Calcular ω utilizando la fórmula y agregarlo como una nueva columna
-df["Hora_Solar"] = np.arccos(-np.tan(np.radians(df["Declinación Solar"])) * np.tan(np.radians(phi)))
+df["Hora Solar"] = np.arccos(-np.tan(np.radians(df["Declinación Solar"])) * np.tan(np.radians(phi)))
 # Actualizar la visualización del DataFrame con la nueva columna
 st.write(df)
