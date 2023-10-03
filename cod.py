@@ -9,7 +9,8 @@ st.title("Cálculo de Radiación Solar en la Atmósfera Exterior")
 # Crear la aplicación Streamlit
 st.write("Cálculo de ángulo horario de salida del Sol")
 # Agregar un campo de entrada para ϕ
-phi = st.number_input("Ingrese la longitud (ϕ):", min_value=-180.0, max_value=180.0, step=0.000001)
+phi = st.number_input("Ingrese la latitud(ϕ):", min_value=-180.0, max_value=180.0, step=0.000001)
+longitud = st.number_input("Longitud:")
 # Leer el archivo CSV en un DataFrame
 df = pd.read_csv("https://raw.githubusercontent.com/Frank10OC/Radiacion/main/dato.csv")
 # Calcular ω utilizando la fórmula y agregarlo como una nueva columna
@@ -52,4 +53,23 @@ st.area_chart(df[["dia", 'Radiación Solar Exterior']])
 # Opcional: Mostrar una tabla con los datos
 st.write("Tabla de Datos:")
 st.write(df)
+import streamlit as st
+import folium
+
+# Título de la aplicación
+st.title("Mapa Interactivo en Streamlit")
+
+# Agregar campos de entrada para latitud y longitud
+latitud = phi
+
+
+# Crear un mapa de Folium
+m = folium.Map(location=[latitud, longitud], zoom_start=10)
+
+# Añadir marcador en la ubicación ingresada por el usuario
+folium.Marker([latitud, longitud], tooltip="Ubicación Personalizada").add_to(m)
+
+# Mostrar el mapa en Streamlit usando st
+st.write(m)
+
 
