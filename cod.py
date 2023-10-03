@@ -21,8 +21,8 @@ st.write(df)
 # Título de la aplicación
 st.title("Cálculo de Radiación Solar en la Atmósfera Exterior")
 # Conversión de grados a radianes
-omega =(df['Hora Solar']) 
-delta = (df['Declinación Solar'])
+omega =np.radians(df['Hora Solar']) 
+delta = np.radians(df['Declinación Solar'])
 phi=np.radians(phi)
 
 # Cálculo de la radiación solar (Ho)
