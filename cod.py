@@ -27,7 +27,7 @@ phi=np.radians(phi)
 
 # Cálculo de la radiación solar (Ho)
 factor = (24 / math.pi) * df['Radiación Solar']
-term1 = (math.pi / 180) * omega * np.sin(delta) * np.sin(phi)
+term1 = (math.pi / 180) * radianes_a_grados(omega) * np.sin(delta) * np.sin(phi)
 term2 = np.cos(delta) * np.cos(phi) * np.sin(omega)
 ho = factor * (term1 + term2)
 st.write(omega)
